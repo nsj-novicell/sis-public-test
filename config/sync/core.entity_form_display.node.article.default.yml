@@ -1,0 +1,448 @@
+uuid: aac27188-4420-429d-95ea-c967a9a0bebc
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.article.body
+    - field.field.node.article.field_article_categories
+    - field.field.node.article.field_article_type
+    - field.field.node.article.field_class
+    - field.field.node.article.field_colophon
+    - field.field.node.article.field_colophon_author
+    - field.field.node.article.field_colophon_editor
+    - field.field.node.article.field_colophon_photographer
+    - field.field.node.article.field_description
+    - field.field.node.article.field_equipment
+    - field.field.node.article.field_factboxes
+    - field.field.node.article.field_graphics
+    - field.field.node.article.field_header
+    - field.field.node.article.field_list_date
+    - field.field.node.article.field_list_media
+    - field.field.node.article.field_location
+    - field.field.node.article.field_media_downloads
+    - field.field.node.article.field_season
+    - field.field.node.article.field_subject
+    - field.field.node.article.field_teaching_goals
+    - field.field.node.article.field_time
+    - field.field.node.article.layout_builder__layout
+    - node.type.article
+  module:
+    - datetime
+    - field_group
+    - media_library
+    - paragraphs_asymmetric_translation_widgets
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_page_header:
+      children:
+        - field_header
+      label: 'Page header'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+        open: false
+    group_list:
+      children:
+        - field_list_date
+        - field_list_media
+        - field_description
+      label: Listevisning
+      region: content
+      parent_name: group_article_metadata
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: 'Bruges hvis artiklen bliver vist i en liste'
+        required_fields: true
+        open: false
+    group_article_metadata:
+      children:
+        - group_list
+        - group_categorization
+        - group_colophon
+        - group_article_colophon
+        - group_teaching_goals
+        - group_factboxes
+        - group_files
+      label: 'Artikel metadata'
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_categorization:
+      children:
+        - field_subject
+        - field_class
+        - field_location
+        - field_season
+        - field_time
+      label: Kategorisering
+      region: content
+      parent_name: group_article_metadata
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_colophon:
+      children:
+        - field_equipment
+      label: Grej
+      region: content
+      parent_name: group_article_metadata
+      weight: 23
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_article_colophon:
+      children:
+        - field_colophon
+        - field_colophon_author
+        - field_colophon_editor
+        - field_colophon_photographer
+      label: Kolofon
+      region: content
+      parent_name: group_article_metadata
+      weight: 24
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_teaching_goals:
+      children:
+        - field_teaching_goals
+      label: Undervisningsmål
+      region: content
+      parent_name: group_article_metadata
+      weight: 25
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_factboxes:
+      children:
+        - field_factboxes
+      label: Faktabokse
+      region: content
+      parent_name: group_article_metadata
+      weight: 26
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_files:
+      children:
+        - field_media_downloads
+      label: Filer
+      region: content
+      parent_name: group_article_metadata
+      weight: 27
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: lCMS9iqusl8ppbYxINj_SRny0NNOhS2IAGuGG9i0r6c
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 6
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_article_categories:
+    type: entity_reference_autocomplete_tags
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_article_type:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_class:
+    type: entity_reference_autocomplete_tags
+    weight: 17
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_colophon:
+    type: text_textarea
+    weight: 28
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_colophon_author:
+    type: string_textfield
+    weight: 29
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_colophon_editor:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_colophon_photographer:
+    type: string_textfield
+    weight: 31
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: string_textarea
+    weight: 15
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_equipment:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_factboxes:
+    type: paragraphs_classic_asymmetric
+    weight: 32
+    region: content
+    settings:
+      title: Faktaboks
+      title_plural: Faktabokse
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_graphics:
+    type: media_library_widget
+    weight: 5
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_header:
+    type: paragraphs_classic_asymmetric
+    weight: 16
+    region: content
+    settings:
+      title: 'Page header'
+      title_plural: 'Page headers'
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_list_date:
+    type: datetime_default
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_list_media:
+    type: media_library_widget
+    weight: 14
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_location:
+    type: entity_reference_autocomplete_tags
+    weight: 18
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_media_downloads:
+    type: media_library_widget
+    weight: 33
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_season:
+    type: entity_reference_autocomplete_tags
+    weight: 19
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_subject:
+    type: entity_reference_autocomplete_tags
+    weight: 16
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_teaching_goals:
+    type: text_textarea
+    weight: 25
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_time:
+    type: entity_reference_autocomplete_tags
+    weight: 34
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 0
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 12
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  layout_builder__layout: true
+  moderation_state: true

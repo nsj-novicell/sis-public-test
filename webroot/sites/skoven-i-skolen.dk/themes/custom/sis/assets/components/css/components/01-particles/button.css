@@ -1,0 +1,59 @@
+/**
+ * Type: Atom.
+ * Button.
+ */
+
+/* stylelint-disable selector-class-pattern */
+.styles--preview--button,
+.button,
+a.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 55px;
+  padding: 0 55px;
+  overflow: hidden;
+  color: var(--theme-button-color);
+  font-weight: 800;
+  font-size: var(--base-font-size);
+  font-family: var(--base-font-family);
+  white-space: nowrap;
+  text-decoration: none;
+  background-color: var(--theme-button-background-color);
+  border: 1px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+
+  &[disabled],
+  [disabled] & {
+    opacity: .6;
+    pointer-events: none;
+  }
+
+  &--ghost {
+    color: currentcolor;
+    background-color: transparent;
+    border: 2px solid var(--theme-button-color);
+  }
+
+  &--center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &--right {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+
+  &--small {
+    min-height: 45px;
+    padding: 0 20px;
+  }
+
+  &.js-hide {
+    display: none;
+  }
+}
+/* stylelint-enable selector-class-pattern */

@@ -1,0 +1,53 @@
+/**
+ * Type: Organisms.
+ * Pager.
+ */
+
+.pager {
+  margin-top: 50px;
+  padding-left: 0;
+
+  &__items {
+    padding-left: 0;
+    text-align: center;
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+    font-size: var(--base-font-size-small);
+    text-align: center;
+    border: 1px solid var(--color-purple);
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+
+    &.is-active {
+      background-color: var(--color-purple);
+
+      a {
+        color: var(--color-white);
+      }
+    }
+
+    a {
+      display: block;
+      padding: 5px 11px;
+      text-decoration: none;
+    }
+
+    &--ellipsis {
+      padding: 5px 11px;
+    }
+
+    &--previous,
+    &--next {
+      border: none;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}

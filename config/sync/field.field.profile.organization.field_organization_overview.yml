@@ -1,0 +1,37 @@
+uuid: 43e20ccd-a8db-4aa0-8491-e2e0c3501e88
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_organization_overview
+    - profile.type.organization
+  module:
+    - entity_overview
+id: profile.organization.field_organization_overview
+field_name: field_organization_overview
+entity_type: profile
+bundle: organization
+label: Overblik
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    fields:
+      field_article_categories: {  }
+      field_article_type: {  }
+      field_class: {  }
+      field_location: {  }
+      field_season: {  }
+      field_subject: {  }
+    count: 5
+    sort: newest
+    pagination: true
+    facets:
+      - field_class
+      - field_location
+      - field_season
+      - field_subject
+default_value_callback: ''
+settings: {  }
+field_type: overview_filter

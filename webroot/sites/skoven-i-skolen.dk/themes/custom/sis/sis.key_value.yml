@@ -1,0 +1,19 @@
+color_themes:
+  primary:
+    name: Primary
+    color: '#00687f'
+  blue:
+    name: Blue
+    color: '#408e9f'
+  green:
+    name: Green
+    color: '#007950'
+  pink:
+    name: Pink
+    color: '#fbdace'
+  purple:
+    name: Purple
+    color: '#3d2859'
+  yellow:
+    name: Yellow
+    color: '#ffe6a0'

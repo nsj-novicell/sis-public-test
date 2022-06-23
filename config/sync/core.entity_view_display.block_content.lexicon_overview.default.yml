@@ -1,0 +1,25 @@
+uuid: 10b4806d-bd04-464f-baff-9cbb91d69842
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.lexicon_overview
+    - field.field.block_content.lexicon_overview.field_lexicon_overview
+  module:
+    - sis_lexicon
+id: block_content.lexicon_overview.default
+targetEntityType: block_content
+bundle: lexicon_overview
+mode: default
+content:
+  field_lexicon_overview:
+    type: lexicon_overview_form
+    label: hidden
+    settings:
+      view_mode: teaser
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

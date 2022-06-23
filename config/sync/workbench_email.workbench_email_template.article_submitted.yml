@@ -1,0 +1,24 @@
+uuid: d1094839-14f0-49b9-8e2f-cd0f19d665f6
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.editor
+    - user.role.webmaster
+id: article_submitted
+label: 'Artikel indsendt'
+subject: 'Ny artikel: [node:title] '
+recipient_types:
+  roles_with_access:
+    id: roles_with_access
+    provider: workbench_email
+    status: true
+    settings:
+      roles:
+        editor: editor
+        webmaster: webmaster
+bundles: {  }
+body:
+  value: "En artikel afventer godkendelse\r\n\r\nSe artiklen [node:url]"
+  format: plain_text
+replyTo: ''

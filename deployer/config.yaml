@@ -1,0 +1,40 @@
+.base: &base
+  application: skoven-i-skoven
+  roles: app
+  branch: develop
+  slack_webhook: ""
+  drupal_site: "skoven-i-skolen.dk"
+  docroot: 'webroot'
+  repository: "git@bitbucket.org:novicell/skoven_i_skolen_2_0.git"
+  git_tty: true
+  shared_dirs:
+    - 'webroot/sites/skoven-i-skolen.dk/files'
+  shared_files:
+    - 'webroot/sites/skoven-i-skolen.dk/settings.local.php'
+    - 'webroot/sites/skoven-i-skolen.dk/services.local.yml'
+    - 'webroot/sites/sites.local.php'
+    - '.env'
+  writable_dirs:
+    - 'webroot/sites/skoven-i-skolen.dk/files'
+  allow_anonymous_stats: false
+  keep_releases: 5
+  drupal_core_version: 9
+  use_locale_update: true
+  use_composer: true
+  use_npm: true
+  theme_exec_path: sites/skoven-i-skolen.dk/themes/custom/sis
+# prod:
+#   <<: *base
+#   branch: master
+#   deploy_path: /var/www/html/sis2.dk/public/
+#   hostname: '192.168.87.153'
+#   user: nsj
+#   disable_slack: true
+staging:
+  <<: *base
+  branch: develop
+  deploy_path: /var/www/html/sis.local
+  hostname: '192.168.87.120'
+  user: nsj
+  disable_slack: true
+  keep_releases: 2

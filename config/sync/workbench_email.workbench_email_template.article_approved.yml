@@ -1,0 +1,18 @@
+uuid: 87eec9f3-f51c-439b-9cac-9adfa4cd53c7
+langcode: da
+status: true
+dependencies: {  }
+id: article_approved
+label: 'Artikel godkendt'
+subject: 'En test'
+recipient_types:
+  author:
+    id: author
+    provider: workbench_email
+    status: true
+    settings: {  }
+bundles: {  }
+body:
+  value: "Din artikel er blevet godkendt.\r\n\r\nSe den her [node:url]"
+  format: plain_text
+replyTo: ''

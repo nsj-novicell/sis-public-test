@@ -1,0 +1,11 @@
+# Danish translation of Sis Lexicon (all releases)
+# Copyright (c) 2021 Novicell
+#
+msgid ""
+msgstr ""
+
+msgid "All @type pages"
+msgstr "Alle @type sider"
+
+msgid "Materials from @organization"
+msgstr "Materialer fra @organization"

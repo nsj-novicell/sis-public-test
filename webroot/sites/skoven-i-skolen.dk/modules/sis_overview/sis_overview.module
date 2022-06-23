@@ -1,0 +1,45 @@
+<?php
+
+use Drupal\Core\Template\Attribute;
+
+module_load_include('inc', 'sis_overview', 'preprocess');
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ *
+ * @param $projects
+ *   List of all projects
+ */
+function sis_overview_locale_translation_projects_alter(&$projects) {
+  $module_handler = \Drupal::service('module_handler');
+  $path = $module_handler->getModule('sis_overview')->getPath();
+  $projects['sis_overview']['info']['interface translation server pattern'] = $path . '/translations/%language.po';
+}
+
+
+function sis_overview_theme() {
+  return [
+    'term_overview' => [
+      'variables' => ['term' => NULL, 'entities' => []]
+    ],
+    'overview_list_item' => [
+      'variables' => ['headline' => NULL, 'link' => []]
+    ],
+  ];
+}
+
+/**
+ * @param $suggestions
+ * @param array $variables
+ */
+function sis_overview_theme_suggestions_input_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+
+  if (isset($element['#attributes']['data-twig-suggestion'])) {
+    $suggestions[] = 'input__' . $element['#type'] . '__' . $element['#attributes']['data-twig-suggestion'];
+  }
+}
+
+function sis_overview_preprocess_overview_list_item(&$variables) {
+  $variables['attributes'] = new Attribute();
+}

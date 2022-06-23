@@ -1,0 +1,36 @@
+uuid: 530413fa-bea8-4dce-b746-b7962db7eafa
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.lexicon_overview
+    - field.field.block_content.lexicon_overview.field_lexicon_overview
+  module:
+    - sis_lexicon
+id: block_content.lexicon_overview.default
+targetEntityType: block_content
+bundle: lexicon_overview
+mode: default
+content:
+  field_lexicon_overview:
+    type: lexicon_overview_widget
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

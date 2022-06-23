@@ -1,0 +1,107 @@
+{#
+/**
+ * @file
+ *
+ * Default theme implementation for profiles.
+ *
+ * Available variables:
+ * - content: Items for the content of the profile.
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.title'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('title') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - view_mode: The profile view mode used.
+ * - profile: The profile object.
+ * - url: The profile URL, if available.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('sis/profile') }}
+{{ attach_library('sis/breadcrumb') }}
+{% set classes = [
+  'profile',
+  'profile--' ~ profile.id,
+  'profile--type--' ~ profile.bundle|clean_class,
+  profile.isDefault() ? 'profile--is-default',
+  view_mode ? 'profile--view-mode--' ~ view_mode|clean_class,
+  'clearfix',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {% if content.field_organization_graphic[0] %}
+    <div class="profile__hero">
+      {{ content.field_organization_graphic }}
+    </div>
+  {% endif %}
+  <div id="block-breadcrumbs">
+    <div class="container">
+      <div class="breadcrumb"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-7 col-xs-12">
+        <h1 class="profile__page-title">{{ profile.field_organization_address.organization }}</h1>
+        {{ title_suffix.contextual_links }}
+        <div class="profile__description">
+          {{ profile.field_organization_description.value|t }}
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4 col-lg-offset-1 col-xs-12 profile__info">
+        <div class="profile__logo">
+          {{ content.field_organization_logo }}
+        </div>
+        <div class="profile__address">
+          <div class="profile__address--row">
+            <div class="profile__address--label">
+              Adresse
+            </div>
+            <div class="profile__address--content">
+              {{ profile.field_organization_address.address_line1 }}, {{ profile.field_organization_address.postal_code }} {{ profile.field_organization_address.locality }}
+            </div>
+          </div>
+          {% if profile.field_organization_phone[0] %}
+            <div class="profile__address--row">
+              <div class="profile__address--label">
+                Telefon
+              </div>
+              <div class="profile__address--content">
+                {{ profile.field_organization_phone.value }}
+              </div>
+            </div>
+          {% endif %}
+          {% if profile.field_organization_email[0] %}
+            <div class="profile__address--row">
+              <div class="profile__address--label">
+                E-mail
+              </div>
+              <div class="profile__address--content">
+                <a href="mailto:{{ profile.field_organization_email.value }}">{{ profile.field_organization_email.value }}</a>
+              </div>
+            </div>
+          {% endif %}
+          {% if profile.field_organization_website[0] %}
+            <div class="profile__address--row">
+              <div class="profile__address--label">
+                Hjemmeside
+              </div>
+              <div class="profile__address--content">
+                <a href="{{ profile.field_organization_website.uri }}" target="_blank">{{ profile.field_organization_website.uri }}</a>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-xs-12">
+      </div>
+    </div>
+  </div>
+  </div>
+<div class="profile__overview">
+  {{ content.field_organization_overview }}
+</div>

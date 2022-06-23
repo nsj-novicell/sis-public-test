@@ -1,0 +1,70 @@
+/**
+ * Type: Molecules.
+ * Sub navigation.
+ */
+
+.sub-navigation {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-blue-light);
+  box-shadow: 0 25px 50px 0 rgb(0 0 0 / 10%);
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  transition: all .3s;
+  will-change: transform;
+
+  &__list {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    transition: opacity .3s;
+
+    &.fade-enter,
+    &.fade-leave-to {
+      opacity: 0;
+    }
+
+    &.fade-enter-to,
+    &.fade-leave {
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    display: flex;
+    width: 25%;
+    margin: 20px 40px 20px 0;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--base-font-size);
+    text-decoration: none;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+
+    &-title {
+      position: relative;
+      margin-bottom: 15px;
+      padding-left: 30px;
+
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+
+    &-description {
+      font-weight: 400;
+    }
+  }
+}

@@ -1,0 +1,90 @@
+/**
+ * Type: Organisms.
+ * Footer.
+ */
+
+.footer {
+  position: relative;
+
+  &__graphic {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+    margin-bottom: -20px;
+
+    @media (--viewport-md-min) {
+      margin-top: -80px;
+    }
+  }
+
+  &__inner {
+    position: relative;
+
+    & h2 {
+      font-size: var(--base-font-size-xlarge);
+    }
+
+    &.section.theme a {
+      color: var(--color-white);
+    }
+  }
+
+  .almanac__list-navigation-arrow {
+    background-color: var(--color-pink);
+
+    &::after {
+      border-color: var(--color-purple);
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    color: var(--color-white);
+    background-color: var(--color-green-dark);
+
+    &-logo,
+    &-address,
+    &-links {
+      align-self: center;
+    }
+
+    &-address,
+    &-links {
+      padding-top: 10px;
+    }
+
+    &-logo {
+      .logo__image {
+        height: 41px;
+        margin: 0;
+      }
+    }
+
+    &-address {
+      text-align: center;
+    }
+
+    &-links {
+      font-size: var(--base-font-size-small);
+      text-align: right;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          display: inline-flex;
+          padding-left: 25px;
+
+          a {
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+  }
+}
