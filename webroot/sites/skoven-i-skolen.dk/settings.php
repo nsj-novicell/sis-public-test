@@ -789,7 +789,6 @@ $settings['migrate_node_migrate_type_classic'] = false;
 $settings['config_sync_directory'] = '../config/sync';
 
 $config['config_split.config_split.develop']['status'] = strtolower(getenv('CONFIG_SPLIT_DEVELOPMENT')) === 'true';
-$config['config_split.config_split.develop']['status'] = false;
 
 if (extension_loaded('redis') && !empty(getenv('REDIS_HOST'))) {
     $settings['redis.connection']['interface'] = 'PhpRedis';
